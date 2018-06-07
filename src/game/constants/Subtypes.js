@@ -1,0 +1,20 @@
+export default Object.freeze({
+	Demon: Symbol('Demon'),
+	Dragon: Symbol('Dragon'),
+	ElfMage: Symbol('Elf Mage'),
+	Giant: Symbol('Giant'),
+	GiantWolf: Symbol('Giant Wolf'),
+	Human: Symbol('Human'),
+	HumanAssassin: Symbol('Human Assassin'),
+	HumanMage: Symbol('Human Mage'),
+	HumanMonk: Symbol('Human Monk'),
+	HumanNecromancer: Symbol('Human Necromancer'),
+	HumanPaladin: Symbol('Human Paladin'),
+	HumanPriest: Symbol('Human Priest'),
+	HumanRogue: Symbol('Human Rogue'),
+	HumanWarrior: Symbol('Human Warrior'),
+	OgreWarrior: Symbol('Ogre Warrior'),
+	Orc: Symbol('Orc'),
+	TrollWarrior: Symbol('Troll Warrior'),
+	Vampire: Symbol('Vampire')
+});
