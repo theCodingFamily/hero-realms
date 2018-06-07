@@ -1,5 +1,8 @@
+// @flow
+
 import React, { Component } from 'react';
 import logo from 'images/logo.svg';
+import { Navbar, Jumbotron, Button } from 'react-bootstrap';
 import 'containers/App.css';
 
 class App extends Component {
