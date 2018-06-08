@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import logo from 'images/logo.svg';
 import { Navbar, Jumbotron, Button } from 'react-bootstrap';
 import 'containers/App.css';
+import CreateAbility from 'game/abilities/factory';
 
 class App extends Component {
   render() {
