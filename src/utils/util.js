@@ -21,5 +21,51 @@ export default {
 
 	isFunction: (f) => {
 		return typeof f === 'function';
+	},
+
+	isBlankString: (s) => {
+		return typeof s !== 'string' || s.trim().length === 0;
+	},
+
+	isNotBlankString: (s) => {
+		return typeof s === 'string' && s.trim().length > 0;
+	},
+
+	isPositiveInt: (n) => {
+		return Number.isInteger(n) && n > 0;
+	},
+
+	sum: (arr) => {
+		if (!Array.isArray(arr)) {
+			throw new Error(`Can only sum() an array (arr=${arr}).`);
+		}
+
+		return arr.reduce((total, value) => {
+			return total + value;
+		}, 0);
+	},
+
+	invariant: (cond, message) => {
+		if (!cond) {
+			throw new Error(`Invariant violation: ${message}`);
+		}
+	},
+
+	shuffle: (arr) => {
+		const copy = [...arr];
+		const len = copy.length;
+		let i;
+		let j;
+		let temp;
+
+		for (i = 0; i < len; i++) {
+			// randomly swap locations
+			j = Math.floor(Math.random() * len); // get an integer from 0 ... (len - 1)
+			temp = copy[i];
+			copy[i] = copy[j];
+			copy[j] = temp;
+		}
+
+		return copy;
 	}
 };
