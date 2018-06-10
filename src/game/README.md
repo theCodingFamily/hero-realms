@@ -36,6 +36,27 @@ const player = CreatePlayer()
     .build();
 ```
 
+# Deck Creation
+
+```javascript
+const deck = CreateDeck()
+    .add(card1)
+    .add(card2)
+    .add(card3)
+    .add(card4)
+    .shuffle(true)
+    .build();
+```
+
+# Market Creation
+```javascript
+const market = CreateMarket()
+    .deck(deck)
+    .fireGems(20)
+    .size(5)
+    .build();
+```
+
 # Player Actions
 
 ```javascript
@@ -121,9 +142,10 @@ player.getCombatsInPool();
 
 ```javascript
 const game = Create(GameTypes.OneVsOne)
-    .add(CreatePlayer().name('Player One').role(Roles.None))
-    .add(CreatePlayer().name('Player Two').role(Roles.None))
+    .player(CreatePlayer().name('Player One').role(Roles.None))
+    .player(CreatePlayer().name('Player Two').role(Roles.None))
     .shufflePlayers(true) // shuffle player order
+    .market(market)
     .build();
 ```
 

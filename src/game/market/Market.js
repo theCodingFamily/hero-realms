@@ -1,83 +1,18 @@
-import util from 'utils/util';
+import FireGem from 'game/cards/FireGem';
+import CreateDeck from 'game/deck/CreateDeck';
 
-const invariant = util.invariant;
-const shuffle = util.shuffle;
-
-export default (data) => {
-	const MARKET_SIZE = 5;
-
-	function copy () {
-		return Object.assign({}, data);
+function createFireGems (count) {
+	const builder = CreateDeck();
+	for (let i = 0; i < count; i++) {
+		builder.add(FireGem());
 	}
+	return builder.build();
+}
 
-	return {
-		market: () => {
-			return [...data.market];
-		},
+export default (deck, fireGemsCount, size) => {
+	let _deck = deck;
+	let _fireGems = createFireGems(fireGemsCount);
+	let _size = size;
 
-		drawPile: () => {
-			return [...data.drawPile];
-		},
-
-		rubies: () => {
-			return [...data.rubies];
-		},
-
-		refillMarket: () => {
-			const amount = MARKET_SIZE - data.market.length;
-
-			if (amount > 0) {
-				const c = copy();
-
-				while (amount--) {
-					if (c.market.length) {
-						c.market.push(c.drawPile.pop());
-					}
-				}
-				return c;
-			}
-
-			return data; // no change
-		},
-
-		shuffle: () => {
-			const c = copy();
-			c.drawPile = shuffle(c.drawPile);
-			return c;
-		},
-
-		removeFromMarket: (cards) => {
-			const c = copy();
-
-			cards.forEach((card) => {
-				const index = c.market.indexOf(card);
-
-				invariant(
-					index !== -1,
-					`Did not find one of the cards in the market.`
-				);
-
-				c.market.splice(index, 1);
-			});
-
-			return c;
-		},
-
-		removeFromDrawPile: (cards) => {
-			const c = copy();
-
-			cards.forEach((card) => {
-				const index = c.market.indexOf(card);
-
-				invariant(
-					index !== -1,
-					`Did not find one of the cards in the draw pile.`
-				);
-
-				c.drawPile.splice(index, 1);
-			});
-
-			return c;
-		}
-	};
+	return {}; // TBD - market API
 };
