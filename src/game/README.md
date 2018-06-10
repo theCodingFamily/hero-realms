@@ -1,6 +1,6 @@
 # Ability Creation
 
-```
+```javascript
 const ability = CreateAbility(Abilities.And)
     .add(CreateAbility(Abilities.Attack).value(6))
     .add(CreateAbility(Abilities.Gold).value(3))
@@ -9,7 +9,7 @@ const ability = CreateAbility(Abilities.And)
 
 # Card Creation
 
-```
+```javascript
 const card = CreateCard(Types.Champion)
     .name('Grak, Storm Giant')
     .faction(Factions.Wild)
@@ -29,7 +29,7 @@ const card = CreateCard(Types.Champion)
 
 # Player Creation
 
-```
+```javascript
 const player = CreatePlayer()
     .name(`Player One`)
     .role(Roles.None) // eventually, these will include Thief, Warrior, etc
@@ -38,7 +38,7 @@ const player = CreatePlayer()
 
 # Player Actions
 
-```
+```javascript
 /* 
 Begin the Main Phase.
 
@@ -50,7 +50,7 @@ player.mainPhase(api);
 
 #Main Phase Game API
 
-```
+```javascript
 
 api.getCurrentPlayer(); // returns the current player object
 
@@ -83,7 +83,7 @@ api.attackCombatTarget(target); // applies the necessary amount of Combat
 ```
 
 # ~~deprecated~~
-```
+```javascript
 // begin main phase
 player.mainPhase(done); // invoke "done" callback when done with the main phase
 
@@ -119,7 +119,7 @@ player.getCombatsInPool();
 
 # Game Creation
 
-```
+```javascript
 const game = Create(GameTypes.OneVsOne)
     .add(CreatePlayer().name('Player One').role(Roles.None))
     .add(CreatePlayer().name('Player Two').role(Roles.None))
@@ -129,7 +129,7 @@ const game = Create(GameTypes.OneVsOne)
 
 # Game Actions
 
-```
+```javascript
 /* 
 Start the game:
   1. deals out the players
